@@ -1,14 +1,13 @@
 package br.com.alissonfernandes.academiabackend.mapper;
 
+import br.com.alissonfernandes.academiabackend.builder.AlunoDTOBuilder;
 import br.com.alissonfernandes.academiabackend.dto.AlunoDTO;
 import br.com.alissonfernandes.academiabackend.model.Aluno;
-import br.com.alissonfernandes.academiabackend.model.Endereco;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.time.LocalDate;
 
 public class AlunoMapperTest {
 
@@ -16,9 +15,8 @@ public class AlunoMapperTest {
 
     @Test
     public void testModelToDTO(){
-        Aluno alunoModel = this.getAlunoModel();
-
-        AlunoDTO alunoDTO = alunoMapper.toDTO(alunoModel);
+        AlunoDTO alunoDTO = AlunoDTOBuilder.builder().build().toAlunoDTO();
+        Aluno alunoModel = alunoMapper.toModel(alunoDTO);
 
         assertEquals(alunoDTO.getNome(), alunoModel.getNome());
         assertEquals(alunoDTO.getCpf(), alunoModel.getCpf());
@@ -36,7 +34,7 @@ public class AlunoMapperTest {
 
     @Test
     public void testDTOToModel() {
-        AlunoDTO alunoDTO = alunoMapper.toDTO(this.getAlunoModel());
+        AlunoDTO alunoDTO = AlunoDTOBuilder.builder().build().toAlunoDTO();
 
         Aluno alunoModel = alunoMapper.toModel(alunoDTO);
 
@@ -54,29 +52,4 @@ public class AlunoMapperTest {
         assertEquals(alunoModel.getEndereco().getComplemento(), alunoDTO.getEndereco().getComplemento());
     }
 
-    private Aluno getAlunoModel() {
-
-        Aluno aluno = new Aluno();
-
-        aluno.setNome("Test");
-        aluno.setCpf("12345678900");
-        aluno.setDataNascimento(LocalDate.now());
-        aluno.setEndereco(this.getEnderecoModel());
-
-        return aluno;
-    }
-
-    private Endereco getEnderecoModel() {
-
-        Endereco endereco = new Endereco();
-
-        endereco.setCidade("Cidade");
-        endereco.setUf("DF");
-        endereco.setBairro("Bairro");
-        endereco.setRua("Rua");
-        endereco.setNumero("18");
-        endereco.setComplemento("Complemento");
-
-        return endereco;
-    }
 }
