@@ -5,6 +5,7 @@ import br.com.alissonfernandes.academiabackend.dto.EnderecoDTO;
 import lombok.Builder;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Builder
 public class AlunoDTOBuilder {
@@ -22,7 +23,7 @@ public class AlunoDTOBuilder {
     private EnderecoDTO endereco = EnderecoDTO.builder().build();
 
     @Builder.Default
-    private LocalDate dataNascimento = LocalDate.now();
+    private String dataNascimento = DateTimeFormatter.ofPattern("dd-MM-yyyy").format(LocalDate.now());
 
     public AlunoDTO toAlunoDTO() {
 

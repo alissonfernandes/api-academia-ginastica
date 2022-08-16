@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
-import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -29,7 +28,7 @@ public class AlunoDTO {
     private EnderecoDTO endereco;
 
     @NotEmpty
-    private LocalDate dataNascimento;
+    private String dataNascimento;
 
     private List<AvaliacaoFisicaDTO> avaliacoes;
 }
