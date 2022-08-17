@@ -23,7 +23,7 @@ public class AvaliacaoFisica {
     private Aluno aluno;
 
     @Column
-    private LocalDate dataAvalicao = LocalDate.now();
+    private LocalDate dataAvaliacao = LocalDate.now();
 
     @Column(nullable = false)
     private double peso;

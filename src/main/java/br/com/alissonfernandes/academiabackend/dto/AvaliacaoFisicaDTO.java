@@ -18,7 +18,7 @@ public class AvaliacaoFisicaDTO {
 
     private AlunoDTO aluno;
 
-    private LocalDate dataAvalicao = LocalDate.now();
+    private LocalDate dataAvaliacao = LocalDate.now();
 
     @NotEmpty
     private double peso;
