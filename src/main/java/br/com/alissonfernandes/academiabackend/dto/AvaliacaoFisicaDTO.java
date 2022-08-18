@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
-import java.time.LocalDate;
 
 @Data
 @Builder
@@ -18,7 +17,7 @@ public class AvaliacaoFisicaDTO {
 
     private AlunoDTO aluno;
 
-    private LocalDate dataAvaliacao = LocalDate.now();
+    private String dataAvaliacao ;
 
     @NotEmpty
     private double peso;
