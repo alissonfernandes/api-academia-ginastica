@@ -7,10 +7,12 @@ import br.com.alissonfernandes.academiabackend.model.AvaliacaoFisica;
 import br.com.alissonfernandes.academiabackend.repository.AvaliacaoFisicaRepository;
 import br.com.alissonfernandes.academiabackend.service.IAvaliacaoFisicaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class AvaliacaoFisicaServiceImpl implements IAvaliacaoFisicaService {
 
     @Autowired
