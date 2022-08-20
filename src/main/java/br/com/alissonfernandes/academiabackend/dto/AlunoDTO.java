@@ -6,7 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Data
@@ -21,6 +23,8 @@ public class AlunoDTO {
     private String cpf;
 
     @NotEmpty
+    @NotBlank(message = "Preencha o campo corretamente")
+    @Size(min = 3, max = 50, message = "'${validatedValue}' precisa estar entre {min} e {max} caracteres")
     private String nome;
 
     @NotEmpty
@@ -28,6 +32,7 @@ public class AlunoDTO {
     private EnderecoDTO endereco;
 
     @NotEmpty
+    @NotBlank(message = "Preencha o campo corretamente")
     private String dataNascimento;
 
     private List<AvaliacaoFisicaDTO> avaliacoes;
